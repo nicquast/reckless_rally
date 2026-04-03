@@ -29,10 +29,10 @@ light_energy = 1.035
 light_indirect_energy = 1.593
 
 [node name="Car" parent="." unique_id=1530576533 instance=ExtResource("1_g7g4h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.496856, 0.012792498, 5.53073)
+transform = Transform3D(0.32650858, 0, -0.94519424, 0, 1, 0, 0.94519424, 0, 0.32650858, 18.598541, 0.012792498, 5.53073)
 
 [node name="Camera3D" type="Camera3D" parent="Car" unique_id=324999546]
-transform = Transform3D(-0.9906635, -0.0037092753, -0.13627921, -0.009526657, 0.9990697, 0.04205989, 0.1359964, 0.04296548, -0.98977727, -0.10134506, 0.91522634, 0.4636345)
+transform = Transform3D(-0.9906635, -0.003709278, -0.13627914, -0.009526657, 0.9990697, 0.042059887, 0.13599631, 0.04296548, -0.9897773, 0.7638111, 2.326959, -5.185046)
 fov = 60.309563
 
 [node name="Ramp2" parent="." unique_id=717800836 instance=ExtResource("2_j8ivh")]
