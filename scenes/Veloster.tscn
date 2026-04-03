@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://d0sgq8hebqltd"]
 
+[ext_resource type="Script" uid="uid://e4sh4hu2mav3" path="res://scripts/interior_cockpit.gd" id="1_tnsfa"]
 [ext_resource type="Texture2D" uid="uid://bom4b0j3nhp5y" path="res://assets/car_interior/veloster/interior_240p.png" id="1_u8pla"]
 [ext_resource type="Texture2D" uid="uid://dll40ykj7rnhr" path="res://assets/car_interior/veloster/wheel_100p.png" id="2_s6c3m"]
 
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_tnsfa")
 
 [node name="Dash" type="TextureRect" parent="." unique_id=821414490]
 layout_mode = 1
