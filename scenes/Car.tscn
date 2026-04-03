@@ -15,7 +15,7 @@ point_count = 2
 
 [sub_resource type="Curve" id="Curve_fbyd5"]
 _limits = [10.0, 8000.0, 0.0, 8000.0]
-_data = [Vector2(0, 10), 0.0, 0.0, 0, 0, Vector2(1023.56903, 10), 0.0, 0.0, 0, 0, Vector2(4148.148, 3233.3623), 0.6002762, 0.6002762, 0, 0, Vector2(8000, 8000), 2.5635333, 0.0, 0, 0]
+_data = [Vector2(0, 1138.1221), 0.0, 0.0, 0, 0, Vector2(1400.6733, 1474.4883), 0.0, 0.0, 0, 0, Vector2(3986.532, 2079.9482), 0.6002762, 0.6002762, 0, 0, Vector2(8000, 8000), 2.5635333, 0.0, 0, 0]
 point_count = 4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e33s5"]
@@ -106,7 +106,7 @@ script = ExtResource("1_qn377")
 center_of_mass_node = NodePath("Center of Mass")
 power_curve = SubResource("Curve_ys5ts")
 brake_pressure_curve = SubResource("Curve_qn377")
-throttle_multiplier = 1000
+throttle_multiplier = 1500
 rpm_damping_curve = SubResource("Curve_fbyd5")
 
 [node name="body" type="MeshInstance3D" parent="." unique_id=1815946841]
