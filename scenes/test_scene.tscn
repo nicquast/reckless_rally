@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bcs3tgr6cctuc"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_a5oyu"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_g7g4h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j8ivh"]
+albedo_color = Color(0.46284872, 0.27838483, 0.14186567, 1)
+
+[node name="Test Scene" type="Node3D" unique_id=1227347967]
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=247677581]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=702646641]
+shape = SubResource("WorldBoundaryShape3D_a5oyu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=177654294]
+transform = Transform3D(17.055, 0, 0, 0, -7.4549774e-07, 17.055, 0, -17.055, -7.4549774e-07, 0, 0, 0)
+mesh = SubResource("QuadMesh_g7g4h")
+surface_material_override/0 = SubResource("StandardMaterial3D_j8ivh")
