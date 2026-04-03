@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bcs3tgr6cctuc"]
+
+[ext_resource type="PackedScene" uid="uid://b7l2t0mllj6pt" path="res://scenes/Car.tscn" id="1_g7g4h"]
+[ext_resource type="PackedScene" uid="uid://cdom30awh3ami" path="res://assets/temp/ramp.gltf" id="2_j8ivh"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_g7g4h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j8ivh"]
+albedo_color = Color(0.46284872, 0.27838483, 0.14186567, 1)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_a5oyu"]
+
+[node name="Test Scene" type="Node3D" unique_id=1227347967]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=177654294]
+transform = Transform3D(151.84047, 0, 0, 0, -6.6371576e-06, 151.84047, 0, -151.84047, -6.6371576e-06, 0, -0.48455083, 0)
+mesh = SubResource("QuadMesh_g7g4h")
+surface_material_override/0 = SubResource("StandardMaterial3D_j8ivh")
+
+[node name="Ground" type="StaticBody3D" parent="MeshInstance3D" unique_id=247677581]
+transform = Transform3D(0.00658586, 0, 0, 0, -2.878771e-10, -0.00658586, 0, 0.00658586, -2.878771e-10, 0, -1.394911e-10, 0.003191184)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Ground" unique_id=702646641]
+shape = SubResource("WorldBoundaryShape3D_a5oyu")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=803802859]
+transform = Transform3D(1, 0, 0, 0, 0.75435454, 0.65646726, 0, -0.65646726, 0.75435454, 0, 2.6759171, 0)
+light_energy = 1.035
+light_indirect_energy = 1.593
+
+[node name="Car" parent="." unique_id=1530576533 instance=ExtResource("1_g7g4h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.496856, 0.012792498, 5.53073)
+
+[node name="Camera3D" type="Camera3D" parent="Car" unique_id=324999546]
+transform = Transform3D(-0.99453634, -0.0071568675, -0.10414591, -0.01809903, 0.99435985, 0.10450378, 0.10281059, 0.10581775, -0.9890564, -0.10134506, 1.615889, -4.34557)
+fov = 40.976772
+
+[node name="Ramp2" parent="." unique_id=717800836 instance=ExtResource("2_j8ivh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.301016, 1, 4.5227456)
