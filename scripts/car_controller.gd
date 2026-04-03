@@ -1,10 +1,10 @@
-extends VehicleBody3D
+class_name Car extends VehicleBody3D
 
 ## If set will set the center of mass to the position of the given node
 @export var center_of_mass_node:Node3D
 
 ## Defines the limit of wheel rotation for steering in radians
-@export var steering_limit = deg_to_rad(45)
+@export var steering_limit = deg_to_rad(30)
 
 ## Defines the speed at which the front wheels will rotate to the selected angle
 @export var steering_speed = 2.5
@@ -21,8 +21,8 @@ extends VehicleBody3D
 ## Multiplication factor for determining rpm acceleration
 @export var throttle_multiplier = 800
 
-## Multiplication factor on RPM load (how quickly rpm drops)
-@export var rpm_damper = 1
+## When letting off the accelerator defines how much rpm drops as a function of rpm
+@export var rpm_damping_curve: Curve
 
 ## Aero drag coefficient for calculating RPM load
 @export var drag_coefficient = 0.6
@@ -44,11 +44,13 @@ func _process(delta: float) -> void:
 	var steering_input = Input.get_action_strength("Steer Left") - Input.get_action_strength("Steer Right")
 	
 	# Simplified rpm acceleration calculation clamp to values over 0 - this definitely needs some work...
-	var rpm_acceleration = throttle_multiplier * acceleration_input * (1.0-(rpm/max_rpm)) - (rpm_damper * rpm_load_factor() + 200 * brake)
+	var rpm_acceleration = throttle_multiplier * acceleration_input * (1.0-(rpm/max_rpm))
+	if acceleration_input == 0.0:
+		rpm_acceleration = -rpm_damping_curve.sample(rpm)
 	
-	#apply rpm acceleration and make sure rpm stays above 0
+	#apply rpm acceleration and clamp rpm between 0 and redline
 	rpm += rpm_acceleration * delta
-	rpm = max(rpm, 0)
+	rpm = clamp(rpm, 0, max_rpm)
 	
 	# set rpm to 0 if linear velocity is 0 and we are braking (this probably won't work great...)
 	if (brake > 0 and linear_velocity.length() == 0):
@@ -60,7 +62,25 @@ func _process(delta: float) -> void:
 	engine_force = power_curve.sample(rpm)
 	brake = brake_pressure_curve.sample(braking_input * brake_pressure_curve.max_domain)
 	
-	print_debug($"Back Left Wheel".get_skidinfo())
+	if Input.is_action_just_pressed("Handbrake"):
+		activate_handbrake()
+	
+	if Input.is_action_just_released("Handbrake"):
+		deactivate_handbrake()
 	
 func rpm_load_factor():
 	return (linear_velocity.length() * drag_coefficient)
+
+func activate_handbrake():
+	$"Back Left Wheel".wheel_friction_slip /= 2
+	$"Back Right Wheel".wheel_friction_slip /= 2
+	
+	$"Front Left Wheel".wheel_friction_slip *= 2
+	$"Front Right Wheel".wheel_friction_slip *= 2
+func deactivate_handbrake():
+	$"Back Left Wheel".wheel_friction_slip *= 2
+	$"Back Right Wheel".wheel_friction_slip *= 2
+	
+	$"Front Left Wheel".wheel_friction_slip /= 2
+	$"Front Right Wheel".wheel_friction_slip /= 2
+	

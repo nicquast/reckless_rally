@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b7l2t0mllj6pt" path="res://scenes/Car.tscn" id="1_g7g4h"]
 [ext_resource type="PackedScene" uid="uid://cdom30awh3ami" path="res://assets/temp/ramp.gltf" id="2_j8ivh"]
+[ext_resource type="Script" uid="uid://c1axsfccueaht" path="res://scripts/debug_label.gd" id="3_nd71p"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_g7g4h"]
 
@@ -30,6 +31,7 @@ light_indirect_energy = 1.593
 
 [node name="Car" parent="." unique_id=1530576533 instance=ExtResource("1_g7g4h")]
 transform = Transform3D(0.32650858, 0, -0.94519424, 0, 1, 0, 0.94519424, 0, 0.32650858, 18.598541, 0.012792498, 5.53073)
+rpm_damper = 50
 
 [node name="Camera3D" type="Camera3D" parent="Car" unique_id=324999546]
 transform = Transform3D(-0.9906635, -0.003709278, -0.13627914, -0.009526657, 0.9990697, 0.042059887, 0.13599631, 0.04296548, -0.9897773, 0.7638111, 2.326959, -5.185046)
@@ -37,3 +39,17 @@ fov = 60.309563
 
 [node name="Ramp2" parent="." unique_id=717800836 instance=ExtResource("2_j8ivh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.301016, 1, 4.5227456)
+
+[node name="Container" type="Control" parent="." unique_id=568082649]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Container" unique_id=1145030272 node_paths=PackedStringArray("car_object")]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "RPM: "
+script = ExtResource("3_nd71p")
+car_object = NodePath("../../Car")
