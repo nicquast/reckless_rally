@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://beauapfmgv1wa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qx6ui"]
+size = Vector3(1, 0.5291748, 1.2597961)
+
+[sub_resource type="BoxMesh" id="BoxMesh_oj1x7"]
+
+[node name="Car_poc" type="VehicleBody3D" unique_id=1320634760]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1917285527]
+shape = SubResource("BoxShape3D_qx6ui")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=171351401]
+transform = Transform3D(1, 0, 0, 0, 0.5430577, 0, 0, 0, 1.2529203, 0, -0.0037960112, 0)
+mesh = SubResource("BoxMesh_oj1x7")
+
+[node name="FL Wheel" type="VehicleWheel3D" parent="." unique_id=1622865575]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5969651, -0.4891945, 0.62330574)
+
+[node name="FR Wheel" type="VehicleWheel3D" parent="." unique_id=2043780599]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5881148, -0.4891945, 0.62330574)
+
+[node name="BL Wheel" type="VehicleWheel3D" parent="." unique_id=668233796]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5969651, -0.4891945, -0.4805687)
+
+[node name="BR Wheel" type="VehicleWheel3D" parent="." unique_id=384916902]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.584623, -0.4891945, -0.4675153)
