@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cfvs3i058fvrg" path="res://scripts/car_controller.gd" id="1_qn377"]
 [ext_resource type="AudioStream" uid="uid://dl1a40jf2yevh" path="res://assets/temp/Sounds/car_idle_test.wav" id="3_fbyd5"]
 [ext_resource type="Texture2D" uid="uid://bmui1udhbgj5p" path="res://assets/temp/Textures/colormap.png" id="3_qn377"]
+[ext_resource type="AudioStream" uid="uid://bt64kwbygyutd" path="res://assets/temp/Sounds/gravel.wav" id="3_t6kce"]
 
 [sub_resource type="Curve" id="Curve_ys5ts"]
 _limits = [0.0, 600.0, 0.0, 8000.0]
@@ -110,6 +111,7 @@ brake_pressure_curve = SubResource("Curve_qn377")
 throttle_multiplier = 1500
 rpm_damping_curve = SubResource("Curve_fbyd5")
 engine_sound_loop = ExtResource("3_fbyd5")
+gravel_sound_loop = ExtResource("3_t6kce")
 
 [node name="body" type="MeshInstance3D" parent="." unique_id=1815946841]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, -0.025)
@@ -173,3 +175,7 @@ mesh = SubResource("ArrayMesh_fbyd5")
 
 [node name="Center of Mass" type="Node3D" parent="." unique_id=1668788281]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29283053, 0.31859434)
+
+[node name="engine_player" type="AudioStreamPlayer3D" parent="." unique_id=2129092398]
+
+[node name="gravel_player" type="AudioStreamPlayer3D" parent="." unique_id=1528150526]
