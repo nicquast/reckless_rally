@@ -2,7 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://b7l2t0mllj6pt" path="res://scenes/Car.tscn" id="1_g7g4h"]
 [ext_resource type="PackedScene" uid="uid://cdom30awh3ami" path="res://assets/temp/ramp.gltf" id="2_j8ivh"]
+[ext_resource type="PackedScene" uid="uid://daxk14350ym0q" path="res://scenes/tree.tscn" id="2_qjeyg"]
 [ext_resource type="Script" uid="uid://c1axsfccueaht" path="res://scripts/debug_label.gd" id="3_nd71p"]
+[ext_resource type="PackedScene" uid="uid://d0sgq8hebqltd" path="res://scenes/Veloster.tscn" id="4_7ddre"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_g7g4h"]
 
@@ -31,10 +33,9 @@ light_indirect_energy = 1.593
 
 [node name="Car" parent="." unique_id=1530576533 instance=ExtResource("1_g7g4h")]
 transform = Transform3D(0.32650858, 0, -0.94519424, 0, 1, 0, 0.94519424, 0, 0.32650858, 18.598541, 0.012792498, 5.53073)
-rpm_damper = 50
 
 [node name="Camera3D" type="Camera3D" parent="Car" unique_id=324999546]
-transform = Transform3D(-0.9906635, -0.003709278, -0.13627914, -0.009526657, 0.9990697, 0.042059887, 0.13599631, 0.04296548, -0.9897773, 0.7638111, 2.326959, -5.185046)
+transform = Transform3D(-0.99977577, -0.008721093, -0.019295067, -0.0095266625, 0.9990697, 0.04205989, 0.018910289, 0.042234275, -0.99892884, 0.018976212, 1.038314, 0.49339008)
 fov = 60.309563
 
 [node name="Ramp2" parent="." unique_id=717800836 instance=ExtResource("2_j8ivh")]
@@ -53,3 +54,41 @@ offset_bottom = 23.0
 text = "RPM: "
 script = ExtResource("3_nd71p")
 car_object = NodePath("../../Car")
+
+[node name="Cockpit" parent="." unique_id=1905040714 instance=ExtResource("4_7ddre")]
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 2.0
+offset_bottom = 1.0
+
+[node name="Trees" type="Node" parent="." unique_id=1516010984]
+
+[node name="Sprite3D2" parent="Trees" unique_id=68557814 instance=ExtResource("2_qjeyg")]
+transform = Transform3D(0.3265086, 0, 0.94519424, 0, 1, 0, -0.94519424, 0, 0.3265086, -9.775951, 2.7951221, -2.4232411)
+
+[node name="Sprite3D" parent="Trees" unique_id=1607448672 instance=ExtResource("2_qjeyg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.076872, 3, 8.200392)
+
+[node name="Sprite3D3" parent="Trees" unique_id=730911480 instance=ExtResource("2_qjeyg")]
+transform = Transform3D(0.3265086, 0, 0.94519424, 0, 1, 0, -0.94519424, 0, 0.3265086, -14.775951, 2.7951221, -2.4232411)
+
+[node name="Sprite3D4" parent="Trees" unique_id=604512278 instance=ExtResource("2_qjeyg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.076872, 3, 8.200392)
+
+[node name="Sprite3D5" parent="Trees" unique_id=1189748406 instance=ExtResource("2_qjeyg")]
+transform = Transform3D(0.3265086, 0, 0.94519424, 0, 1, 0, -0.94519424, 0, 0.3265086, -20.775951, 2.7951221, -2.4232411)
+
+[node name="Sprite3D6" parent="Trees" unique_id=1699077527 instance=ExtResource("2_qjeyg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.076872, 3, 8.200392)
+
+[node name="Sprite3D7" parent="Trees" unique_id=1440062671 instance=ExtResource("2_qjeyg")]
+transform = Transform3D(0.3265086, 0, 0.94519424, 0, 1, 0, -0.94519424, 0, 0.3265086, -27.775951, 2.7951221, -2.4232411)
+
+[node name="Sprite3D8" parent="Trees" unique_id=2056304157 instance=ExtResource("2_qjeyg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.076872, 3, 8.200392)
+
+[node name="Sprite3D9" parent="Trees" unique_id=1915412494 instance=ExtResource("2_qjeyg")]
+transform = Transform3D(0.3265086, 0, 0.94519424, 0, 1, 0, -0.94519424, 0, 0.3265086, -35.77595, 2.7951221, -2.4232411)
+
+[node name="Sprite3D10" parent="Trees" unique_id=2145491323 instance=ExtResource("2_qjeyg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.076874, 3, 8.200392)

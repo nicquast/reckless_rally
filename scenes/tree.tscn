@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://daxk14350ym0q"]
+
+[ext_resource type="Texture2D" uid="uid://h5hqjlqs8blr" path="res://assets/environment/trees/test_tree.png" id="1_avsvi"]
+
+[node name="Tree" type="Sprite3D" unique_id=1607448672]
+pixel_size = 0.05
+billboard = 2
+texture_filter = 0
+texture = ExtResource("1_avsvi")
