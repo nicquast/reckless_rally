@@ -27,21 +27,57 @@ class_name Car extends VehicleBody3D
 ## Aero drag coefficient for calculating RPM load
 @export var drag_coefficient = 0.6
 
+## 3d Audio Player with Engine Sound
+@export var engine_sound_loop: AudioStream
+@export var max_engine_sound_pitch: float = 5.0
+
+@export var gravel_sound_loop: AudioStream
+
+@onready var engine_audio_player: AudioStreamPlayer3D = $engine_player
+@onready var gravel_audio_player: AudioStreamPlayer3D = $gravel_player
+
+@onready var front_wheels: Array[VehicleWheel3D] = [$"Front Left Wheel", $"Front Right Wheel"]
+@onready var rear_wheels: Array[VehicleWheel3D] = [$"Back Left Wheel", $"Back Right Wheel"]
+
+# The speed at which the gravel sound reaches its maximum volume (units m/s)
+const MAX_GRAVEL_VOLUME_SPEED = 10
+
 var rpm = 0
 
+var is_grounded: bool: get = _get_is_grounded
+
+func _get_is_grounded():
+	var grounded = false
+	for wheel in front_wheels + rear_wheels:
+		grounded = wheel.is_in_contact()
+	
+	return grounded
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if center_of_mass_node != null:
 		center_of_mass = center_of_mass_node.position
-
+	
+	# Setup engine audio player
+	engine_audio_player.stream = engine_sound_loop
+	engine_audio_player.play()
+	
+	# Setup gravel audio player
+	gravel_audio_player.stream = gravel_sound_loop
+	gravel_audio_player.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	
 	var acceleration_input = Input.get_action_strength("Accelerate")
 	var braking_input = Input.get_action_strength("Brake")
 	var steering_input = Input.get_action_strength("Steer Left") - Input.get_action_strength("Steer Right")
+	
+	if Input.is_action_just_pressed("Handbrake"):
+		activate_handbrake()
+	
+	if Input.is_action_just_released("Handbrake"):
+		deactivate_handbrake()
 	
 	# Simplified rpm acceleration calculation clamp to values over 0 - this definitely needs some work...
 	var rpm_acceleration = throttle_multiplier * acceleration_input * (1.0-(rpm/max_rpm))
@@ -61,12 +97,9 @@ func _process(delta: float) -> void:
 	
 	engine_force = power_curve.sample(rpm)
 	brake = brake_pressure_curve.sample(braking_input * brake_pressure_curve.max_domain)
-	
-	if Input.is_action_just_pressed("Handbrake"):
-		activate_handbrake()
-	
-	if Input.is_action_just_released("Handbrake"):
-		deactivate_handbrake()
+
+func _process(delta: float) -> void:
+	adjust_audio()
 	
 func rpm_load_factor():
 	return (linear_velocity.length() * drag_coefficient)
@@ -83,4 +116,19 @@ func deactivate_handbrake():
 	
 	$"Front Left Wheel".wheel_friction_slip /= 2
 	$"Front Right Wheel".wheel_friction_slip /= 2
+	
+func adjust_audio():
+	engine_audio_player.pitch_scale = lerpf(1, max_engine_sound_pitch, (rpm/max_rpm))
+	
+	var audio_velocity: float
+	if is_grounded:
+		audio_velocity = linear_velocity.length() + angular_velocity.length()
+	else:
+		audio_velocity = 0
+	
+	var volume = min(audio_velocity, MAX_GRAVEL_VOLUME_SPEED)/MAX_GRAVEL_VOLUME_SPEED
+	print_debug(volume)
+	gravel_audio_player.volume_linear = volume
+
+	
 	
