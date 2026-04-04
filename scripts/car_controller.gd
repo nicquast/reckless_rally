@@ -27,6 +27,11 @@ class_name Car extends VehicleBody3D
 ## Aero drag coefficient for calculating RPM load
 @export var drag_coefficient = 0.6
 
+## 3d Audio Player with Engine Sound
+@export var engine_sound_loop: AudioStream
+
+var audio_player
+
 var rpm = 0
 
 
@@ -34,6 +39,13 @@ var rpm = 0
 func _ready() -> void:
 	if center_of_mass_node != null:
 		center_of_mass = center_of_mass_node.position
+	
+	# Setup audio player
+	audio_player = AudioStreamPlayer3D.new()
+	audio_player.stream = engine_sound_loop
+	audio_player.play()
+	add_child(audio_player)
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
