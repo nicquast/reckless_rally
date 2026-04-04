@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://pvrajmd7tb6d"]
+
+[ext_resource type="Texture2D" uid="uid://c1mrsnu4jkupw" path="res://assets/environment/foliage/bush_texture_card.png" id="1_bqnjk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bqnjk"]
+
+[node name="Bush" type="Sprite3D" unique_id=1607448672]
+pixel_size = 0.05
+billboard = 2
+texture_filter = 0
+texture = ExtResource("1_bqnjk")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=16496785]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=719631558]
+shape = SubResource("BoxShape3D_bqnjk")

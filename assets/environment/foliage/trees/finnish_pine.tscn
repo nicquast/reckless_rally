@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://daxk14350ym0q"]
+
+[ext_resource type="Texture2D" uid="uid://bo3u8cr5fmat6" path="res://assets/environment/foliage/trees/finnish_pine_pixel.png" id="1_avsvi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4lp24"]
+size = Vector3(0.73895264, 5.704468, 0.2590332)
+
+[node name="Finnish Pine" type="Sprite3D" unique_id=1607448672]
+pixel_size = 0.05
+billboard = 2
+texture_filter = 0
+texture = ExtResource("1_avsvi")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=481250491]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=730402073]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021026611, 0.3045044, -0.06237793)
+shape = SubResource("BoxShape3D_4lp24")
