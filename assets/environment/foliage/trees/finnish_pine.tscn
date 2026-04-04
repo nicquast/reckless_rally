@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://daxk14350ym0q"]
+
+[ext_resource type="Texture2D" uid="uid://bo3u8cr5fmat6" path="res://assets/environment/foliage/trees/finnish_pine_pixel.png" id="1_avsvi"]
+
+[node name="Finnish Pine" type="Sprite3D" unique_id=1607448672]
+pixel_size = 0.05
+billboard = 2
+texture_filter = 0
+texture = ExtResource("1_avsvi")

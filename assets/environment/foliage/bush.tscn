@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://pvrajmd7tb6d"]
+
+[ext_resource type="Texture2D" uid="uid://c1mrsnu4jkupw" path="res://assets/environment/foliage/bush_texture_card.png" id="1_bqnjk"]
+
+[node name="Bush" type="Sprite3D" unique_id=1607448672]
+pixel_size = 0.05
+billboard = 2
+texture_filter = 0
+texture = ExtResource("1_bqnjk")

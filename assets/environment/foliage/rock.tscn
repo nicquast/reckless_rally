@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://hsli6qywbp21"]
+
+[ext_resource type="Texture2D" uid="uid://85grcqafhe7a" path="res://assets/environment/foliage/rock_texture_card.png" id="1_yll3k"]
+
+[node name="Rock" type="Sprite3D" unique_id=1607448672]
+pixel_size = 0.05
+billboard = 2
+texture_filter = 0
+texture = ExtResource("1_yll3k")

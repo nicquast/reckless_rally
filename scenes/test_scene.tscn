@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b7l2t0mllj6pt" path="res://scenes/Car.tscn" id="1_g7g4h"]
 [ext_resource type="PackedScene" uid="uid://cdom30awh3ami" path="res://assets/temp/ramp.gltf" id="2_j8ivh"]
-[ext_resource type="PackedScene" uid="uid://daxk14350ym0q" path="res://scenes/tree.tscn" id="2_qjeyg"]
+[ext_resource type="PackedScene" uid="uid://daxk14350ym0q" path="res://assets/environment/foliage/trees/finnish_pine.tscn" id="2_qjeyg"]
 [ext_resource type="Script" uid="uid://c1axsfccueaht" path="res://scripts/debug_label.gd" id="3_nd71p"]
 [ext_resource type="PackedScene" uid="uid://d0sgq8hebqltd" path="res://scenes/Veloster.tscn" id="4_7ddre"]
 
