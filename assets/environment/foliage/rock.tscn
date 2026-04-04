@@ -2,8 +2,17 @@
 
 [ext_resource type="Texture2D" uid="uid://85grcqafhe7a" path="res://assets/environment/foliage/rock_texture_card.png" id="1_yll3k"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_yll3k"]
+size = Vector3(2, 1.6420898, 2)
+
 [node name="Rock" type="Sprite3D" unique_id=1607448672]
 pixel_size = 0.05
 billboard = 2
 texture_filter = 0
 texture = ExtResource("1_yll3k")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=745518026]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=579337969]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32104492, 0)
+shape = SubResource("BoxShape3D_yll3k")
