@@ -30,7 +30,9 @@ class_name Car extends VehicleBody3D
 ## 3d Audio Player with Engine Sound
 @export var engine_sound_loop: AudioStream
 
-var audio_player
+@export var max_sound_pitch: float = 5.0
+
+var audio_player: AudioStreamPlayer3D
 
 var rpm = 0
 
@@ -43,8 +45,8 @@ func _ready() -> void:
 	# Setup audio player
 	audio_player = AudioStreamPlayer3D.new()
 	audio_player.stream = engine_sound_loop
-	audio_player.play()
 	add_child(audio_player)
+	audio_player.play()
 	
 
 
@@ -80,6 +82,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_released("Handbrake"):
 		deactivate_handbrake()
 	
+	adjust_engine_pitch()
+	
 func rpm_load_factor():
 	return (linear_velocity.length() * drag_coefficient)
 
@@ -95,4 +99,8 @@ func deactivate_handbrake():
 	
 	$"Front Left Wheel".wheel_friction_slip /= 2
 	$"Front Right Wheel".wheel_friction_slip /= 2
+	
+func adjust_engine_pitch():
+	audio_player.pitch_scale = lerpf(1, max_sound_pitch, (rpm/max_rpm))
+	
 	
