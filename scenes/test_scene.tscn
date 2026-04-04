@@ -47,19 +47,21 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Label" type="Label" parent="Container" unique_id=1145030272 node_paths=PackedStringArray("car_object")]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "RPM: "
-script = ExtResource("3_nd71p")
-car_object = NodePath("../../Car")
-
 [node name="Cockpit" parent="." unique_id=1905040714 instance=ExtResource("4_7ddre")]
 offset_left = 2.0
 offset_top = 1.0
 offset_right = 2.0
 offset_bottom = 1.0
+
+[node name="Label" type="Label" parent="Cockpit" unique_id=1145030272 node_paths=PackedStringArray("car_object")]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -1.0
+offset_right = 42.0
+offset_bottom = 22.0
+text = "RPM: "
+script = ExtResource("3_nd71p")
+car_object = NodePath("../../Car")
 
 [node name="Trees" type="Node" parent="." unique_id=1516010984]
 
