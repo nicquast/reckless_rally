@@ -46,6 +46,30 @@ var rpm = 0
 
 var is_grounded: bool: get = _get_is_grounded
 
+var is_stationary: bool: get = _is_stationary
+const STATIONARY_VELOCITY_CUTOFF = 0.05
+
+var reverse_gear_active: bool: set = _set_reverse
+
+func _set_reverse(active: bool):
+	reverse_gear_active = active
+	
+	# Flip wheels used for steering (front wheels when steering backwars does not really allow for quick turns)
+	for wheel in front_wheels:
+		wheel.use_as_steering = not active
+	
+	for wheel in rear_wheels:
+		wheel.use_as_steering = active
+		
+		# resets rear wheel steering 
+		# (this doesn't happen automatically as the wheel locks when disabling use_as_steering)
+		if not active:
+			wheel.steering = 0	
+
+func _is_stationary():
+	return linear_velocity.length() + angular_velocity.length() < STATIONARY_VELOCITY_CUTOFF
+	
+
 func _get_is_grounded():
 	var grounded = false
 	for wheel in front_wheels + rear_wheels:
@@ -71,17 +95,31 @@ func _physics_process(delta: float) -> void:
 	
 	var acceleration_input = Input.get_action_strength("Accelerate")
 	var braking_input = Input.get_action_strength("Brake")
+	
 	var steering_input = Input.get_action_strength("Steer Left") - Input.get_action_strength("Steer Right")
 	
 	if Input.is_action_just_pressed("Handbrake"):
-		activate_handbrake()
+		set_handbrake(true)
 	
 	if Input.is_action_just_released("Handbrake"):
-		deactivate_handbrake()
+		set_handbrake(false)
+	
+	print_debug(reverse_gear_active)
+	
+	if is_stationary and rpm == 0 and braking_input > 0:
+		reverse_gear_active = true
+	
+	# We omit the rpm check to allow you to transfer power back into forward gear - good for J turns
+	if reverse_gear_active and acceleration_input > 0:
+		reverse_gear_active = false
+	
+	# Use brake or acceleration to increase rpm depending on whether we're in reverse
+	var rpm_input = acceleration_input if not reverse_gear_active else braking_input
 	
 	# Simplified rpm acceleration calculation clamp to values over 0 - this definitely needs some work...
-	var rpm_acceleration = throttle_multiplier * acceleration_input * (1.0-(rpm/max_rpm))
-	if acceleration_input == 0.0:
+	var rpm_acceleration = throttle_multiplier * rpm_input * (1.0-(rpm/max_rpm))
+	
+	if rpm_input == 0.0:
 		rpm_acceleration = -rpm_damping_curve.sample(rpm)
 	
 	#apply rpm acceleration and clamp rpm between 0 and redline
@@ -92,30 +130,23 @@ func _physics_process(delta: float) -> void:
 	if (brake > 0 and linear_velocity.length() == 0):
 		rpm = 0
 	
-	# Simulate moving a wheel by slowly transitioning from current steering angle to input steering angle
-	steering = move_toward(steering, steering_input * steering_limit, delta * steering_speed)
+	# Used to reverse steering and engine force in reverse
+	var reverse: int = (-1 if reverse_gear_active else 1)
 	
-	engine_force = power_curve.sample(rpm)
-	brake = brake_pressure_curve.sample(braking_input * brake_pressure_curve.max_domain)
+	# Simulate moving a wheel by slowly transitioning from current steering angle to input steering angle
+	steering = move_toward(steering, steering_input * steering_limit * reverse, delta * steering_speed)
+	
+	engine_force = power_curve.sample(rpm) * reverse
+	
+	# disable braking in reverse (we're using the brake button to reverse)
+	if not reverse_gear_active:
+		brake = brake_pressure_curve.sample(braking_input * brake_pressure_curve.max_domain)
 
 func _process(delta: float) -> void:
 	adjust_audio()
 	
 func rpm_load_factor():
 	return (linear_velocity.length() * drag_coefficient)
-
-func activate_handbrake():
-	$"Back Left Wheel".wheel_friction_slip /= 2
-	$"Back Right Wheel".wheel_friction_slip /= 2
-	
-	$"Front Left Wheel".wheel_friction_slip *= 2
-	$"Front Right Wheel".wheel_friction_slip *= 2
-func deactivate_handbrake():
-	$"Back Left Wheel".wheel_friction_slip *= 2
-	$"Back Right Wheel".wheel_friction_slip *= 2
-	
-	$"Front Left Wheel".wheel_friction_slip /= 2
-	$"Front Right Wheel".wheel_friction_slip /= 2
 	
 func adjust_audio():
 	engine_audio_player.pitch_scale = lerpf(1, max_engine_sound_pitch, (rpm/max_rpm))
@@ -127,8 +158,13 @@ func adjust_audio():
 		audio_velocity = 0
 	
 	var volume = min(audio_velocity, MAX_GRAVEL_VOLUME_SPEED)/MAX_GRAVEL_VOLUME_SPEED
-	print_debug(volume)
 	gravel_audio_player.volume_linear = volume
 
+func set_handbrake(active: bool):
+	for wheel in rear_wheels:
+		wheel.wheel_friction_slip *= 0.5 if active else 2
+	
+	for wheel in front_wheels:
+		wheel.wheel_friction_slip *= 2 if active else 0.5
 	
 	
