@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://6h6khngu5r7s"]
+
+[ext_resource type="PackedScene" uid="uid://b7l2t0mllj6pt" path="res://scenes/Car.tscn" id="1_hqukv"]
+[ext_resource type="PackedScene" uid="uid://bugekn7b7wudq" path="res://assets/tracks/forest/forest.glb" id="2_hqukv"]
+
+[node name="Node3D" type="Node3D" unique_id=597773270]
+
+[node name="forest" parent="." unique_id=864029865 instance=ExtResource("2_hqukv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15667725, 6.1035156e-05, -0.02722168)
+
+[node name="Car" parent="." unique_id=1530576533 instance=ExtResource("1_hqukv")]
+transform = Transform3D(-0.41443908, 0, 0.91007704, 0, 1, 0, -0.91007704, 0, -0.41443908, -1318.891, 403.79422, -74.05093)
+
+[node name="Camera3D" type="Camera3D" parent="Car" unique_id=1333241598]
+transform = Transform3D(-0.9999867, 0, -0.0051487684, 0, 1, 0, 0.0051487684, 0, -0.9999867, 0, 1.3522339, 0)
