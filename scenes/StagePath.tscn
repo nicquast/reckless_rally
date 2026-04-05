@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dfhq6xhyk805r"]
+
+[ext_resource type="Script" uid="uid://besw7cr5tuyob" path="res://scripts/stage_path.gd" id="1_6mk8f"]
+
+[sub_resource type="Curve3D" id="Curve3D_e2t31"]
+
+[node name="Stage Path" type="Path3D" unique_id=1117221017]
+curve = SubResource("Curve3D_e2t31")
+script = ExtResource("1_6mk8f")
