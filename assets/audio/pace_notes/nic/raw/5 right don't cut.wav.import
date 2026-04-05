@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c1dryuwk8qlsu"
+path="res://.godot/imported/5 right don't cut.wav-d25ead119af5c8a1e671c55755f390c9.sample"
+
+[deps]
+
+source_file="res://assets/audio/pace_notes/nic/raw/5 right don't cut.wav"
+dest_files=["res://.godot/imported/5 right don't cut.wav-d25ead119af5c8a1e671c55755f390c9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://lpgg30piu2o5"
+path="res://.godot/imported/square right.wav-c18c8d6598b5df8a77d4095ca28bf658.sample"
+
+[deps]
+
+source_file="res://assets/audio/pace_notes/nic/raw/square right.wav"
+dest_files=["res://.godot/imported/square right.wav-c18c8d6598b5df8a77d4095ca28bf658.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

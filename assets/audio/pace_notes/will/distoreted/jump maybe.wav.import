@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b7s2t43dnda8e"
+path="res://.godot/imported/jump maybe.wav-0fdd5c5f4a28b58cfed3bcbae3b31ea4.sample"
+
+[deps]
+
+source_file="res://assets/audio/pace_notes/will/distoreted/jump maybe.wav"
+dest_files=["res://.godot/imported/jump maybe.wav-0fdd5c5f4a28b58cfed3bcbae3b31ea4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dnoj12recyx8j"
+path="res://.godot/imported/1 left don't cut.wav-f7c0f1381729a2dbb122c568fa50cedc.sample"
+
+[deps]
+
+source_file="res://assets/audio/pace_notes/nic/raw/1 left don't cut.wav"
+dest_files=["res://.godot/imported/1 left don't cut.wav-f7c0f1381729a2dbb122c568fa50cedc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

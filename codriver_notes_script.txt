@@ -1,0 +1,47 @@
+1 left
+2 left
+3 left
+4 left
+5 left
+6 left
+
+1 left don't cut
+2 left don't cut
+3 left don't cut
+4 left don't cut
+5 left don't cut
+6 left don't cut
+
+hairpin left
+hairpin right
+
+1 right
+2 right
+3 right
+4 right
+5 right
+6 right
+
+1 right don't cut
+2 right don't cut
+3 right don't cut
+4 right don't cut
+5 right don't cut
+6 right don't cut
+
+hairpin left
+hairpin right
+
+open hairpin left
+open hairpin right
+
+square left
+square right
+
+crest
+
+keep left over crest
+keep right over crest
+
+jump
+jump maybe

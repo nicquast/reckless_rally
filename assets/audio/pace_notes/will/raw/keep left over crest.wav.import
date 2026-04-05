@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dswexj8jdvx1m"
+path="res://.godot/imported/keep left over crest.wav-91cd4073f50b28c2fa411aa928d1a356.sample"
+
+[deps]
+
+source_file="res://assets/audio/pace_notes/will/raw/keep left over crest.wav"
+dest_files=["res://.godot/imported/keep left over crest.wav-91cd4073f50b28c2fa411aa928d1a356.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

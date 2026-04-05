@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cbmqy3w07ogw4"
+path="res://.godot/imported/2 right.wav-2aa3542d9f954894b86c712103c4ad8f.sample"
+
+[deps]
+
+source_file="res://assets/audio/pace_notes/will/raw/2 right.wav"
+dest_files=["res://.godot/imported/2 right.wav-2aa3542d9f954894b86c712103c4ad8f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

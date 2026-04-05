@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c1ow6vvcb42kb"
+path="res://.godot/imported/keep right over crest.wav-a54843c5ff825e1a9d3efe7acb7ad24c.sample"
+
+[deps]
+
+source_file="res://assets/audio/pace_notes/will/raw/keep right over crest.wav"
+dest_files=["res://.godot/imported/keep right over crest.wav-a54843c5ff825e1a9d3efe7acb7ad24c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

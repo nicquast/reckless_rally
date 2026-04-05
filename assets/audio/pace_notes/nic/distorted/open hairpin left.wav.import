@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ef50c8f3wiu5"
+path="res://.godot/imported/open hairpin left.wav-d8a00790466d6b7a831b38213e59795b.sample"
+
+[deps]
+
+source_file="res://assets/audio/pace_notes/nic/distorted/open hairpin left.wav"
+dest_files=["res://.godot/imported/open hairpin left.wav-d8a00790466d6b7a831b38213e59795b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

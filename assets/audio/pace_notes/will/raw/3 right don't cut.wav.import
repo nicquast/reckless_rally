@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ctcbbsl841egh"
+path="res://.godot/imported/3 right don't cut.wav-ff7b8348e2bacec490fd6321672fe04e.sample"
+
+[deps]
+
+source_file="res://assets/audio/pace_notes/will/raw/3 right don't cut.wav"
+dest_files=["res://.godot/imported/3 right don't cut.wav-ff7b8348e2bacec490fd6321672fe04e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

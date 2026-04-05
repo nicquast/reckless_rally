@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://4ou81tdk6qbl"
+path="res://.godot/imported/hairpin left.wav-5abbef86926c3b5b77ca63d5865920f6.sample"
+
+[deps]
+
+source_file="res://assets/audio/pace_notes/will/distoreted/hairpin left.wav"
+dest_files=["res://.godot/imported/hairpin left.wav-5abbef86926c3b5b77ca63d5865920f6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

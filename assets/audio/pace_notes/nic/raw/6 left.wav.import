@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dgwcg45ukys2u"
+path="res://.godot/imported/6 left.wav-d2db4cb60699ad777b715e64e09b7db2.sample"
+
+[deps]
+
+source_file="res://assets/audio/pace_notes/nic/raw/6 left.wav"
+dest_files=["res://.godot/imported/6 left.wav-d2db4cb60699ad777b715e64e09b7db2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
